@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+.comment {
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.outerPostWrapper {
+  width: 1000px;
+  border-right: 1px solid black;
+  padding-right: 50px;
+}
+.innerPostWrapper {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgb(8, 83, 8);
+}
+.color {
+  color: blueviolet;
+}
+.blog-name {
+  padding: 50px 0 0 500px;
+  font-size: 64px;
+  text-shadow: 2px 2px 15px rgb(131, 127, 127);
+  font-weight: bold;
+  color: #2b2b2b;
+}
+.all-posts {
+  margin-bottom: 300px;
+  padding: 30px 0 0 550px;
+}
+a {
+  text-decoration: none;
+}
+.post-title {
+  font-family: Roboto;
+  font-weight: 700;
+  color: #1d8c2a;
+  font-size: 34px;
+  font-weight: 1000;
+}
+.post-text {
+  color: #2e343d;
+  padding-top: 30px;
+  font-size: 14px;
+  font-family: Times New Roman;
+}
+.no-tags {
+  color: #2e343d;
+  padding-top: 17px;
+  font-size: 17px;
+  font-family: Ubuntu;
+  margin: 20px 0 10px 0;
+}
+.post-tag {
+  font-size: 15px;
+  text-align: center;
+  display: inline-block;
+  background-color: #23b834;
+  border-radius: 10px;
+  width: 80px;
+  height: 25px;
+  padding-top: 5px;
+  font-weight: bold;
+  color: #2e343d;
+  margin-right: 10px;
+  margin-top: 30px;
+}
+.post-date {
+  font-family: Ubuntu;
+  font-weight: bold;
+  padding-top: 35px;
+  color: #2e343d;
+}

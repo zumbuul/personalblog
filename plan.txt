@@ -1,0 +1,19 @@
+BACKEND
+
+--MODELS--
+post model with post date, name, text, tags, and comments on that specific post
+comment model with comment text and date created 
+
+
+FRONTEND
+
+
+
+PRODUCT
+
+1. One user, created in the database directly.
+2. When logged in with the user, have access to creating posts, editing posts (includes deleting) and deleting comments
+3. When not logged in - be able to check out all the posts, and leave comment without registering/logging in via supplying a username
+and comment text
+4. Each post has tags - the readers can use the tags to sort the posts.
+

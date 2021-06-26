@@ -1,0 +1,24 @@
+.tags {
+  right: 35px;
+  top: 50px;
+  padding: 25px;
+  position: fixed;
+}
+.tags-title {
+  text-align: center;
+  padding-bottom: 25px;
+  font-family: Montserrat;
+}
+.tag {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: block;
+  border-bottom: 1px solid black;
+  font-family: Montserrat;
+}
+.tag-name {
+  color: #248c2a;
+  font-size: 16px;
+}
+.tag-number {
+}
