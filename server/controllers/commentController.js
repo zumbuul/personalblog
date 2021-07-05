@@ -2,7 +2,6 @@ const { findById } = require("../models/commentModel");
 const commentModel = require("../models/commentModel");
 const postModel = require("../models/postModel");
 
-
 exports.getCommentsOnOnePost = async (req, res) => {
   const post = await postModel
     .findById(req.params.id)
@@ -23,14 +22,15 @@ exports.updateComment = (req, res) => {
 };
 
 exports.createComment = async (req, res) => {
-  const {name, commentedOn, text} = req.body;
+  const { name, commentedOn, text } = req.body;
 
-  const post = await postModel.findById(commentedOn)
+  const post = await postModel.findById(commentedOn);
 
-  const comment = new commentModel({author:name, text:text});
+  const comment = new commentModel({ author: name, text: text });
 
-  comment.save().then(comment=>{
+  comment.save().then((comment) => {
     post.comments.push(comment._id);
-    post.save();});
-  res.send({"hello": "world"});
+    post.save();
+  });
+  res.send({ hello: "world" });
 };

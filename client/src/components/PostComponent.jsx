@@ -1,26 +1,43 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import fetchDataFromURL from "./utils/fetchAPI";
-import "./css/spost.css";
+import style from "./css/ipost.module.css";
+import { DateTime } from "luxon";
 import PostCommentSection from "./PostCommentSection.jsx";
 
+//Renders all comments
+
 function commentSection(comment, idx) {
+  console.log(comment);
   return (
     <div className="comment" key={idx}>
-      <span className="color">
-        <b>{comment.author}</b> <u>{comment.text}</u>
-      </span>
-      <p className="color">{comment.dateAdded}</p>
+      <div>
+        <img
+          className={style.image}
+          src="https://i1.sndcdn.com/artworks-dKfSM9B0jqu3gK2F-oNgSig-t500x500.jpg"
+        ></img>
+        <p className={style.author}>{comment.author}</p>
+        <p className={style.comment}>{comment.text}</p>
+      </div>
     </div>
   );
 }
 
+//Renders the main content of the post
+
 function postSection(post) {
   return (
     <div>
-      <p>{post.title}</p>
-      <p>{post.text}</p>
-      <p>{post.createdAt}</p>
+      <p className={style.title}>{post.title}</p>
+      <div className={style.main}>
+        <span className={style.date}>
+          {DateTime.fromISO(post.createdAt).toLocaleString(DateTime.DATE_HUGE)}
+        </span>
+        {post.tags.map((tag) => (
+          <span className={style.tag}>{tag.toUpperCase()}</span>
+        ))}
+        <p className={style.text}>{post.text}</p>
+      </div>
     </div>
   );
 }
@@ -30,6 +47,8 @@ const PostComponent = () => {
   const [formName, setFormName] = useState("");
   const [formText, setFormText] = useState("");
   const { id } = useParams();
+
+  //Renders the "post your comment" section
 
   function createCommentSection() {
     return (
@@ -51,7 +70,7 @@ const PostComponent = () => {
               onChange={handleFormChange}
             ></textarea>
           </label>
-          <input type="submit"></input>
+          <button>Comment</button>
         </form>
       </div>
     );
@@ -64,7 +83,9 @@ const PostComponent = () => {
     console.log(formName, formText);
   }
 
-  async function handleFormSubmit() {
+  async function handleFormSubmit(event) {
+    event.preventDefault();
+
     const payload = {
       name: formName,
       text: formText,
@@ -92,8 +113,8 @@ const PostComponent = () => {
   }, []);
 
   return (
-    <div className="bg">
-      <div className="bgd">
+    <div>
+      <div>
         {postData === undefined ? (
           <p>LOADING</p>
         ) : (
@@ -106,10 +127,10 @@ const PostComponent = () => {
             ) : (
               <div>
                 {postSection(postData)}
-                {createCommentSection()}
                 {postData.comments.map((comment, id) =>
-                  PostCommentSection(comment, id)
+                  commentSection(comment, id)
                 )}
+                {createCommentSection()}
               </div>
             )}
           </div>

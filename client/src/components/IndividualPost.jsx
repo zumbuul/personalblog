@@ -1,5 +1,5 @@
 import React from "react";
-import { DateTime, dt } from "luxon";
+import { DateTime } from "luxon";
 import "./css/post.css";
 
 const IndividualPost = ({ posts }) => {
@@ -19,7 +19,7 @@ const IndividualPost = ({ posts }) => {
               <p className="no-tags">No Adequate Tags Found For This Post :(</p>
             ) : (
               <span>
-                {post.tags.map(tag => (
+                {post.tags.map((tag) => (
                   <span className="post-tag">{tag.toUpperCase()}</span>
                 ))}
               </span>
