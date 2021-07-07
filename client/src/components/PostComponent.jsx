@@ -10,14 +10,25 @@ import PostCommentSection from "./PostCommentSection.jsx";
 function commentSection(comment, idx) {
   console.log(comment);
   return (
-    <div className="comment" key={idx}>
+    <div className={style.comment}>
+      <div className={style.commentUpper} key={idx}>
+        <div>
+          <img
+            className={style.image}
+            src="https://image.flaticon.com/icons/png/512/4333/4333609.png"
+          ></img>
+        </div>
+        <div className={style.commentContent}>
+          <p className={style.author}>{comment.author}</p>
+          <p className={style.commentDate}>
+            {DateTime.fromISO(comment.dateAdded).toLocaleString(
+              DateTime.DATE_HUGE
+            )}
+          </p>
+        </div>
+      </div>
       <div>
-        <img
-          className={style.image}
-          src="https://i1.sndcdn.com/artworks-dKfSM9B0jqu3gK2F-oNgSig-t500x500.jpg"
-        ></img>
-        <p className={style.author}>{comment.author}</p>
-        <p className={style.comment}>{comment.text}</p>
+        <p className={style.commentText}>{comment.text}</p>
       </div>
     </div>
   );
