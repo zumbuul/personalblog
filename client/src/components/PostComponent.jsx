@@ -63,15 +63,17 @@ const PostComponent = () => {
 
   function createCommentSection() {
     return (
-      <div>
+      <div className={style.createComment}>
+        <h1>Leave your take on the discussion</h1>
         <form onSubmit={handleFormSubmit}>
           <label for="name">
-            What's your name?
             <input
               type="text"
               name="name"
               value={formName}
               onChange={handleFormChange}
+              placeholder="Your Name"
+              className={style.nameInput}
             ></input>
           </label>
           <label for="commentText">
@@ -79,9 +81,11 @@ const PostComponent = () => {
               name="commentText"
               value={formText}
               onChange={handleFormChange}
+              placeholder="Your Take"
+              className={style.textInput}
             ></textarea>
           </label>
-          <button>Comment</button>
+          <button className={style.commentButton}>Comment</button>
         </form>
       </div>
     );
