@@ -21,8 +21,8 @@ const Login = () => {
         <LoginPicture src={logo}></LoginPicture>
         <Text>Please log in before editing the blog.</Text>
         <form method="post" action="/">
-          <InputField type="text"></InputField>
-          <InputField type="password"></InputField>
+          <InputField type="text" placeholder="username"></InputField>
+          <InputField type="password" placeholder="password"></InputField>
           <Button>Log In</Button>
         </form>
       </Wrapper>
