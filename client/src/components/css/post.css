@@ -33,17 +33,16 @@ a {
   text-decoration: none;
 }
 .post-title {
-  font-family: Roboto;
-  font-weight: 700;
-  color: #1d8c2a;
+  font-family: Helvetica, sans-serif;
+  font-weight: bolder;
+  color: black;
   font-size: 34px;
-  font-weight: 1000;
 }
 .post-text {
   color: #2e343d;
   padding-top: 30px;
-  font-size: 14px;
-  font-family: Times New Roman;
+  font-size: 18px;
+  font-family: Calibri, sans-serif;
 }
 .no-tags {
   color: #2e343d;
@@ -53,7 +52,7 @@ a {
   margin: 20px 0 10px 0;
 }
 .post-tag {
-  background-color: #23b834;
+  background-color: black;
   border-radius: 40px;
   width: 80px;
   padding: 0.6em;
@@ -67,4 +66,7 @@ a {
   font-weight: bold;
   padding-top: 35px;
   color: #2e343d;
+}
+.nenad {
+  margin-top: 25px;
 }

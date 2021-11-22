@@ -8,6 +8,7 @@
   text-align: center;
   padding-bottom: 25px;
   font-family: Montserrat;
+  color: black;
 }
 .tag {
   padding-top: 10px;
@@ -17,7 +18,7 @@
   font-family: Montserrat;
 }
 .tag-name {
-  color: #248c2a;
+  color: black;
   font-size: 16px;
 }
 .tag-number {

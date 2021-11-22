@@ -12,7 +12,7 @@ export const Home = () => {
     );
   }
   useEffect(() => {
-    document.body.style.backgroundColor = "#DFEEEA";
+    document.body.style.backgroundColor = "#fff";
     if (postsObject === undefined) {
       console.log("rendered");
       fetchAPIDataAndStoreInState();
