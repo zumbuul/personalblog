@@ -4,12 +4,12 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  color: #443523;
+  color: #2b2b2b;
   font-family: "Roboto";
 }
 
 body {
-  background-color: #dfeeea;
+  background-color: #f0f0f0;
 }
 
 .main {
@@ -38,8 +38,8 @@ body {
 }
 .tag {
   float: right;
-  color: #dfeeea;
-  background-color: #443523;
+  color: #f0f0f0;
+  background-color: black;
   border-radius: 40px;
   padding: 0.6em;
   margin-left: 1em;
@@ -48,7 +48,7 @@ body {
 }
 .date {
   font-weight: bold;
-  color: #443523;
+  color: #2b2b2b;
   font-size: 1.325em;
 }
 .image {
@@ -59,9 +59,10 @@ body {
   padding: 2.5rem;
   width: 65%;
   margin: 0 auto;
-  background-color: #c7d4d0;
+  background-color: #ffffff;
+  box-shadow: 5px 5px 10px rgb(144, 144, 144);
   margin-bottom: 3rem;
-  border: 3px solid #afbdb9;
+  border: 3px solid #000000;
 }
 .commentUpper {
   display: flex;
