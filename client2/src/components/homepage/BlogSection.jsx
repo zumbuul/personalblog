@@ -8,7 +8,11 @@ function BlogSection(props) {
   return (
     <div>
       <Text>{props.text}</Text>
-      <BlogPost />
+      <BlogPost type={props.text} />
+      <BlogPost type={props.text} />
+      <BlogPost type={props.text} />
+      <BlogPost type={props.text} />
+      <BlogPost type={props.text} />
     </div>
   );
 }

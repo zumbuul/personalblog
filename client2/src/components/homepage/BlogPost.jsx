@@ -9,23 +9,24 @@ import {
   SectionTwo,
   TrashBtn,
   PublishBtn,
+  ImgPublish,
 } from "../styles/BlogPost.styled";
 
-function BlogPost() {
+function BlogPost(props) {
   return (
     <>
-      <Container post>
+      <Container post={props.type}>
         <SectionOne>
-          <PostName post>Ime posta</PostName>
-          <PostDesc>DASDADAADOAKAPSADPAOPOASDAP</PostDesc>
+          <PostName post={props.type}>Ime posta</PostName>
+          <PostDesc post={props.type}>DASDADAADOAKAPSADPAOPOASDAP</PostDesc>
         </SectionOne>
         <SectionTwo>
-          <TrashBtn>
-            <img src={trash}></img>
-          </TrashBtn>
-          <PublishBtn>
-            <img></img>
+          <PublishBtn post={props.type}>
+            <ImgPublish src={publish} />
           </PublishBtn>
+          <TrashBtn>
+            <img src={trash} />
+          </TrashBtn>
         </SectionTwo>
       </Container>
     </>
