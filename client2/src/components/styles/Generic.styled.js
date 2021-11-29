@@ -1,14 +1,12 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalBody = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 body{
-    background-color: #FFEBC9;
-    margin:0;
+    background-color: #F0ECE3;
+    margin: ss0;
     box-sizing:border-box;
-    font-family: Roboto;
+    font-family: "Ubuntu", sans-serif;
 }
-
-
 `;
