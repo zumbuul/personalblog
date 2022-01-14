@@ -4,6 +4,7 @@ import { Editor } from "@tinymce/tinymce-react";
 
 export default function App({ setContent }) {
   const [text, setText] = useState("");
+  const { id } = useParams();
 
   const editorRef = useRef(null);
   const log = () => {
@@ -12,19 +13,30 @@ export default function App({ setContent }) {
       setContent(editorRef.current.getContent());
     }
   };
-  const FetchData = async () => {
-    const { id } = useParams();
-    const res = await fetch("http://www.localhost:5000/api/posts/" + id);
-    const data = await res.json();
-    console.log(data);
-    return data;
-  };
+  // const FetchData = async () => {
+  //
+  //   const res = await fetch("http://www.localhost:5000/api/posts/" + id);
+  //   const data = await res.json();
+  //   console.log(data);
+  // };
+
+  useEffect(() => {
+    fetch("http://www.localhost:5000/api/posts/" + id)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setText(data.text);
+        console.log(data.text);
+      });
+  }, []);
 
   return (
     <>
       <Editor
         apiKey="8jryulziiwdxusq1rqbjrmnk5o5t1hyt5t0ophhgxfg2y8wg"
         onInit={(evt, editor) => (editorRef.current = editor)}
+        value={text}
         init={{
           height: 850,
           width: 1850,

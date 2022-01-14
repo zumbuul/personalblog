@@ -13,6 +13,9 @@ const App = () => {
         <Route exact path="/edit/:id">
           <Edit></Edit>
         </Route>
+        <Route exact path="/edit">
+          <Edit></Edit>
+        </Route>
         <Route exact path="/homepage">
           <Homepage></Homepage>
         </Route>
