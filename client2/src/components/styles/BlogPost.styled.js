@@ -19,14 +19,14 @@ export const Container = styled.div`
 export const PostName = styled.p`
   font-size: 35px;
   margin-left: 4%;
-  margin-top: 0px;
+  margin-top: 10px;
   color: ${(props) => (props.post == "Posts" ? "#596e79" : "#000000")};
 `;
 
 export const PostDesc = styled.p`
   font-size: 25px;
   margin-left: 4%;
-  // margin-top: 60px;
+  margin-top: 25px;
   color: ${(props) => (props.post == "Posts" ? "#596e79" : "#000000")};
 `;
 
@@ -65,7 +65,7 @@ export const PublishBtn = styled.button`
   position: absolute;
   top: 50%;
   -ms-transform: translateY(-50%);
-  transform: translateY(-50%);\
+  transform: translateY(-50%);
   cursor: pointer;
 `;
 
@@ -73,4 +73,18 @@ export const ImgPublish = styled.img`
   padding: 0;
   transform: translateY(20%);
   transform: translateX(-4%);
+`;
+
+export const MoveToDraftsBtn = styled.button`
+  width: 40px;
+  height: 40px;
+  display: ${(props) => (props.post == "Posts" ? "" : "none")};
+  background-color: #c7b198;
+  border: none;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  cursor: pointer;
 `;

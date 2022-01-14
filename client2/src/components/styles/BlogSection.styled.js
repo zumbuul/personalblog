@@ -5,4 +5,9 @@ export const Text = styled.h1`
   color: #596e79;
   margin-left: 15%;
   font-weight: 300;
+  margin-top: 10px;
+`;
+
+export const Section = styled.div`
+  padding: 10px;
 `;

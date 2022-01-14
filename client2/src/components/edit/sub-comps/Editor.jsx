@@ -1,7 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Editor } from "@tinymce/tinymce-react";
 
 export default function App({ setContent }) {
+  const [text, setText] = useState("");
+
   const editorRef = useRef(null);
   const log = () => {
     if (editorRef.current) {
@@ -9,6 +12,14 @@ export default function App({ setContent }) {
       setContent(editorRef.current.getContent());
     }
   };
+  const FetchData = async () => {
+    const { id } = useParams();
+    const res = await fetch("http://www.localhost:5000/api/posts/" + id);
+    const data = await res.json();
+    console.log(data);
+    return data;
+  };
+
   return (
     <>
       <Editor
