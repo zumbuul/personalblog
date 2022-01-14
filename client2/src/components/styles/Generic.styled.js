@@ -5,7 +5,7 @@ export const GlobalBody = createGlobalStyle`
 
 body{
     background-color: #F0ECE3;
-    margin: ss0;
+    margin: 0px;
     box-sizing:border-box;
     font-family: "Ubuntu", sans-serif;
 }

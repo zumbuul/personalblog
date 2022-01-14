@@ -32,5 +32,4 @@ exports.createComment = async (req, res) => {
     post.comments.push(comment._id);
     post.save();
   });
-  res.send({ hello: "world" });
 };
