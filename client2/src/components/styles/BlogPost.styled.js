@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  padding: 5px;
   margin-top: 20px;
   width: 80%;
   height: 150px;
@@ -16,16 +17,16 @@ export const Container = styled.div`
 `;
 
 export const PostName = styled.p`
-  font-size: 60px;
+  font-size: 35px;
   margin-left: 4%;
   margin-top: 0px;
   color: ${(props) => (props.post == "Posts" ? "#596e79" : "#000000")};
 `;
 
 export const PostDesc = styled.p`
-  font-size: 36px;
-  margin-left: 3%;
-  margin-top: -40px;
+  font-size: 25px;
+  margin-left: 4%;
+  // margin-top: 60px;
   color: ${(props) => (props.post == "Posts" ? "#596e79" : "#000000")};
 `;
 

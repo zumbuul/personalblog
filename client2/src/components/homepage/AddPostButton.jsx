@@ -5,9 +5,11 @@ import plus from "./plus.png";
 function AddPostButton() {
   return (
     <>
-      <Container>
-        <Plus src={plus}></Plus>
-      </Container>
+      <a href="/edit">
+        <Container>
+          <Plus src={plus}></Plus>
+        </Container>
+      </a>
     </>
   );
 }

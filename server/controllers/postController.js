@@ -17,7 +17,9 @@ exports.getPostWithID = async (req, res) => {
 
 exports.deletePost = (req, res) => {
   const postID = req.params.id;
-  postModel.deleteOne({ _id: postID });
+  postModel.deleteOne({ _id: postID }, (err) => {
+    console.log(err);
+  });
 };
 
 exports.updatePost = (req, res) => {
@@ -30,7 +32,7 @@ exports.countTagsOnPost = async (req, res) => {
   const { tag } = req.params;
   console.log(tag);
   const posts = await postModel.find({});
-  posts.map(post => {
+  posts.map((post) => {
     if (post.tags.includes(tag)) tagCounter++;
   });
   res.json({ tags: tagCounter });
