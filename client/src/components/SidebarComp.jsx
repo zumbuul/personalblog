@@ -23,18 +23,9 @@ const SidebarComp = () => {
         <p className="soc">Stalk me on Social Media</p>
         <div className="soc-links">
           <a href="">
-            <img
-              className="soc-btn"
-              src="https://image.flaticon.com/icons/png/512/174/174855.png"
-            ></img>
-            <img
-              className="soc-btn"
-              src="https://image.flaticon.com/icons/png/512/2111/2111425.png"
-            ></img>
-            <img
-              className="soc-btn"
-              src="https://image.flaticon.com/icons/png/512/174/174857.png"
-            ></img>
+            <img className="soc-btn" src="linked.png"></img>
+            <img className="soc-btn" src="github.png"></img>
+            <img className="soc-btn" src="twitter.png"></img>
           </a>
         </div>
       </div>

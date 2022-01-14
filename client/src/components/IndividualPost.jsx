@@ -11,18 +11,18 @@ const IndividualPost = ({ posts }) => {
           <div className="innerPostWrapper">
             <h2 className="post-title">{post.title}</h2>
             <span></span>
-            <h4 className="post-text">{`${post.text.substring(
+            <p className="post-text">{`${post.text.substring(
               0,
               500
-            )} [...]`}</h4>
+            )} [...]`}</p>
             {post.tags.length === 0 ? (
               <p className="no-tags">No Adequate Tags Found For This Post :(</p>
             ) : (
-              <span>
+              <div className="nenad">
                 {post.tags.map((tag) => (
                   <span className="post-tag">{tag.toUpperCase()}</span>
                 ))}
-              </span>
+              </div>
             )}
             <p className="post-date">
               {DateTime.fromISO(post.createdAt).toLocaleString(
