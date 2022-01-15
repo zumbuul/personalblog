@@ -13,12 +13,10 @@ export default function App({ setContent }) {
       setContent(editorRef.current.getContent());
     }
   };
-  // const FetchData = async () => {
-  //
-  //   const res = await fetch("http://www.localhost:5000/api/posts/" + id);
-  //   const data = await res.json();
-  //   console.log(data);
-  // };
+
+  function handleTextChange(e) {
+    setText(e.target.value);
+  }
 
   useEffect(() => {
     fetch("http://www.localhost:5000/api/posts/" + id)
@@ -37,6 +35,7 @@ export default function App({ setContent }) {
         apiKey="8jryulziiwdxusq1rqbjrmnk5o5t1hyt5t0ophhgxfg2y8wg"
         onInit={(evt, editor) => (editorRef.current = editor)}
         value={text}
+        onChange={(e) => handleTextChange(e)}
         init={{
           height: 850,
           width: 1850,
@@ -72,7 +71,7 @@ export default function App({ setContent }) {
             "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
         }}
       />
-      <button onClick={log}>Log editor content</button>
+      <button onClick={setContent}>Log editor content</button>
     </>
   );
 }
