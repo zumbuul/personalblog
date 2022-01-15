@@ -4,6 +4,7 @@ const postSchema = mongoose.Schema(
   {
     title: { type: String, required: true },
     text: { type: String, required: true },
+    isPost: { type: String, required: true, default: "Posts" },
     comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "comments" }],
     tags: [{ type: String }],
   },

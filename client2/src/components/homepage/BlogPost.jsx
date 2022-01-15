@@ -10,7 +10,6 @@ import {
   SectionTwo,
   TrashBtn,
   PublishBtn,
-  ImgPublish,
   MoveToDraftsBtn,
 } from "../styles/BlogPost.styled";
 import useFetchHook from "../utils/useFetchHook";
@@ -50,7 +49,7 @@ function BlogPost(props) {
                 </SectionOne>
                 <SectionTwo>
                   <PublishBtn post={props.type}>
-                    <ImgPublish src={publish} />
+                    <img src={publish} />
                   </PublishBtn>
                   <MoveToDraftsBtn post={props.type}>
                     <img src={toDrafts} alt="" />

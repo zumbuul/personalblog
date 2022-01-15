@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Text = styled.h1`
-  font-size: 64px;
+  font-size: clamp(2rem, 5vw, 4rem);
   color: #596e79;
   font-weight: 300;
 `;
 
 export const LogOut = styled.button`
-  font-size: 36px;
+  font-size: clamp(0.5rem, 4vw, 2.5rem);
   padding: 10px;
   background-color: ${(props) => props.backColor};
   border: 2px solid #c7b198;
@@ -23,6 +23,6 @@ export const Container = styled.div`
   align-items: center;
   height: 50px;
   justify-content: space-between;
-  padding: 20px;
+  padding: 30px;
   margin-top: 10px;
 `;

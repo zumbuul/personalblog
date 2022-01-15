@@ -11,8 +11,21 @@ export const Container = styled.div`
   display: grid;
   place-items: center;
   cursor: pointer;
+  @media (max-width: 1275px) {
+    position: static;
+  }
 `;
 
 export const Plus = styled.img`
   height: 40px;
+`;
+
+export const Wrap = styled.div`
+  @media (max-width: 1275px) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hiden;
+  }
 `;

@@ -4,7 +4,7 @@ const postController = require("../controllers/postController");
 //GET - GET ALL POSTS
 router.get("/", postController.getAllPosts);
 //POST - CREATE NEW POST
-router.get("/");
+router.post("/", postController.createNewPost);
 //GET - GET POST WITH ID /ID
 router.get("/:id", postController.getPostWithID);
 //

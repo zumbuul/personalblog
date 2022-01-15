@@ -37,3 +37,14 @@ exports.countTagsOnPost = async (req, res) => {
   });
   res.json({ tags: tagCounter });
 };
+
+exports.createNewPost = async (req, res) => {
+  const post = new postModel({
+    title: req.body.title,
+    text: req.body.text,
+    isPost: req.body.isPost,
+    coments: [],
+    tags: [],
+  });
+  await post.save();
+};

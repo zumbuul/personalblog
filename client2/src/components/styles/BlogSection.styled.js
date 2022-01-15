@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Text = styled.h1`
-  font-size: 40px;
+  font-size: clamp(0.5rem, 4vw, 2.5rem);
   color: #596e79;
   margin-left: 15%;
   font-weight: 300;
@@ -9,5 +9,11 @@ export const Text = styled.h1`
 `;
 
 export const Section = styled.div`
+  width: 100%;
   padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: 20px;
 `;
