@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Editor } from "@tinymce/tinymce-react";
 
-export default function App({ setContent }) {
+export default function App({ setContent, setTitle }) {
   const [text, setText] = useState("");
   const { id } = useParams();
 
@@ -16,6 +16,8 @@ export default function App({ setContent }) {
 
   function handleTextChange(e) {
     setText(e.target.value);
+    setContent(text);
+    log();
   }
 
   useEffect(() => {
@@ -25,7 +27,7 @@ export default function App({ setContent }) {
       })
       .then((data) => {
         setText(data.text);
-        setContent(text);
+        setTitle(data.title);
         console.log(data.text);
       });
   }, []);
@@ -72,7 +74,6 @@ export default function App({ setContent }) {
             "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
         }}
       />
-      <button onClick={log}>Log editor content</button>
     </>
   );
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import trash from "./trash-can.png";
 import publish from "./publish1.png";
 import toDrafts from "./toDrafts.svg";
+import ReactHtmlParser from "react-html-parser";
 import {
   Container,
   PostName,
@@ -39,27 +40,30 @@ function BlogPost(props) {
       ) : (
         postsObject.posts.map((post) =>
           props.type == post.isPost ? (
-            <a style={{ textDecoration: "none" }} href={`/edit/${post._id}`}>
-              <Container post={props.type}>
-                <SectionOne>
+            <Container post={props.type}>
+              <SectionOne>
+                <a
+                  style={{ textDecoration: "none" }}
+                  href={`/edit/${post._id}`}
+                >
                   <PostName post={props.type}>{post.title}</PostName>
                   <PostDesc post={props.type}>
-                    {post.text.substring(0, 150) + " {...}"}
+                    {ReactHtmlParser(post.text.substring(0, 150))}
                   </PostDesc>
-                </SectionOne>
-                <SectionTwo>
-                  <PublishBtn post={props.type}>
-                    <img src={publish} />
-                  </PublishBtn>
-                  <MoveToDraftsBtn post={props.type}>
-                    <img src={toDrafts} alt="" />
-                  </MoveToDraftsBtn>
-                  <TrashBtn onClick={() => deletePost(post._id)}>
-                    <img src={trash} />
-                  </TrashBtn>
-                </SectionTwo>
-              </Container>
-            </a>
+                </a>
+              </SectionOne>
+              <SectionTwo>
+                <PublishBtn post={props.type}>
+                  <img src={publish} />
+                </PublishBtn>
+                <MoveToDraftsBtn post={props.type}>
+                  <img src={toDrafts} alt="" />
+                </MoveToDraftsBtn>
+                <TrashBtn onClick={() => deletePost(post._id)}>
+                  <img src={trash} />
+                </TrashBtn>
+              </SectionTwo>
+            </Container>
           ) : (
             ""
           )

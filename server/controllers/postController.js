@@ -47,4 +47,5 @@ exports.createNewPost = async (req, res) => {
     tags: [],
   });
   await post.save();
+  console.log(req.body);
 };
