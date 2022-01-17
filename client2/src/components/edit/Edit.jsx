@@ -27,7 +27,7 @@ const Edit = () => {
       body: JSON.stringify({
         title: title,
         text: content,
-        isPost: "Drafts",
+        isPost: "Posts",
       }),
     };
     // console.log(ReactHtmlParser.props[0].children[0](content));

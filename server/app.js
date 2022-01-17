@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const postsRouter = require("./routes/postsRouter");
 const commentsRouter = require("./routes/commentsRouter");
-const bodyParser = require("body-parser");
+const logInRouter = require("./routes/logInRouter");
 require("dotenv").config();
 require("./config/dbcon")();
 
@@ -19,11 +19,11 @@ require("./config/dbcon")();
 const app = express();
 
 app.use(express.json());
-app.use(bodyParser.json());
 app.use(cors());
 
 app.use("/api/posts", postsRouter);
 app.use("/api/comments", commentsRouter);
+app.use("/api/login", logInRouter);
 
 app.listen(process.env.DEV_PORT, () => {
   console.log(`Hosting server @ port ${process.env.DEV_PORT}`);

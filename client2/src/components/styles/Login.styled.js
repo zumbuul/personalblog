@@ -26,7 +26,7 @@ export const InputField = styled.input`
   border: 3px solid #d79771;
   border-radius: 5px;
   display: block;
-  margin-top: 50px;
+  // margin-top: 50px;
   padding: 10px 20px;
   font-size: 1rem;
   width: 80%;
@@ -38,6 +38,13 @@ export const Button = styled.button`
   height: 50px;
   background-color: white;
   font-size: 1rem;
-  margin-left: 20%;
-  margin-top: 50px;
+  // margin-top: 50px;
+`;
+
+export const Form = styled.form`
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 `;
