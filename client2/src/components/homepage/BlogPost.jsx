@@ -17,15 +17,25 @@ import useFetchHook from "../utils/useFetchHook";
 
 function BlogPost(props) {
   const [postsObject, setPostsObject] = useState(undefined);
-  async function FetchAPIDataAndStoreInState() {
-    setPostsObject(await useFetchHook("http://www.localhost:5000/api/posts/"));
-  }
+  // let posts = [];
+  // async function FetchAPIDataAndStoreInState() {
+  //   setPostsObject(await useFetchHook("http://www.localhost:5000/api/posts/"));
+  // }
   useEffect(() => {
-    if (postsObject === undefined) {
-      FetchAPIDataAndStoreInState();
-    }
+    // if (postsObject === undefined) {
+    //   FetchAPIDataAndStoreInState();
+    // }
+    fetch("http://www.localhost:5000/api/posts/authAllPosts", {
+      headers: {
+        "auth-token": localStorage.getItem("token"),
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setPostsObject(data);
+        console.log("post object " + postsObject);
+      });
   }, []);
-  console.log(postsObject);
 
   const deletePost = (id) => {
     fetch("http://www.localhost:5000/api/posts/" + id, {

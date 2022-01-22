@@ -21,7 +21,10 @@ const Login = () => {
     e.preventDefault();
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       body: JSON.stringify({
         pass: pass,
       }),
@@ -31,7 +34,17 @@ const Login = () => {
       requestOptions
     );
     const data = await res.json();
-    console.log(data);
+    console.log(data.token);
+    if ((data.auth = true)) {
+      localStorage.setItem("token", data.token);
+      console.log(data.auth);
+      window.location.replace("http://localhost:3000/homepage");
+    } else {
+      if (localStorage.getItem("token")) {
+        localStorage.removeItem("token");
+      }
+    }
+    // window.location.replace("http://localhost:3000/homepage");
   };
   return (
     <>

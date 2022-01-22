@@ -1,8 +1,11 @@
 const router = require("express").Router();
 const postController = require("../controllers/postController");
+const verify = require("../verifyToken");
 
 //GET - GET ALL POSTS
 router.get("/", postController.getAllPosts);
+//GET - GET ALL POSTS WITH AUTH
+router.get("/authAllPosts", verify, postController.getAllPosts);
 //POST - CREATE NEW POST
 router.post("/", postController.createNewPost);
 //GET - GET POST WITH ID /ID

@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const postsRouter = require("./routes/postsRouter");
 const commentsRouter = require("./routes/commentsRouter");
 const logInRouter = require("./routes/logInRouter");
@@ -18,8 +19,9 @@ require("./config/dbcon")();
 
 const app = express();
 
+app.use(cookieParser());
 app.use(express.json());
-app.use(cors());
+app.use(cors({ credential: true, origin: "http://localhost:3000" }));
 
 app.use("/api/posts", postsRouter);
 app.use("/api/comments", commentsRouter);
