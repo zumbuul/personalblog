@@ -7,14 +7,14 @@ import BlogSection from "./BlogSection";
 import AddPostButton from "./AddPostButton";
 
 function Homepage() {
-  const [token, setToken] = useState(undefined);
+  const [token, setToken] = useState("");
 
   useEffect(async () => {
     fetch("http://www.localhost:5000/api/login/")
       .then((res) => res.json())
       .then((data) => {
         setToken(data.token);
-        // console.log("token " + token);
+        console.log("token " + token);
       });
   }, []);
   // console.log("token " + token);

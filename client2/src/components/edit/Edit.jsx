@@ -15,10 +15,12 @@ import {
   TitleText,
   TitleWrapper,
 } from "../styles/edit/Edit.style.js";
+import { Redirect } from "react-router";
 
 const Edit = () => {
   const [content, setContent] = useState(null);
   const [title, setTitle] = useState();
+  const [token, setToken] = useState("");
 
   const savePost = () => {
     const requestOptions = {
@@ -39,32 +41,47 @@ const Edit = () => {
   useEffect(() => {
     console.log(content);
     Prism.highlightAll();
+
+    fetch("http://www.localhost:5000/api/login/")
+      .then((res) => res.json())
+      .then((data) => {
+        setToken(data.token);
+        console.log("token " + token);
+      });
   }, [content]);
   return (
     <>
-      <GlobalBody />
-      <TitleDiv>
-        <TitleWrapper>
-          <TitleText>Title:</TitleText>
-          <TitleInput
-            type="text"
-            value={title}
-            onChange={(e) => {
-              setTitle(e.target.value);
-              console.log(title);
-            }}
-          />
-        </TitleWrapper>
-      </TitleDiv>
+      {token !== null ? (
+        <>
+          <GlobalBody />
+          <TitleDiv>
+            <TitleWrapper>
+              <TitleText>Title:</TitleText>
+              <TitleInput
+                type="text"
+                value={title}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                  console.log(title);
+                }}
+              />
+            </TitleWrapper>
+          </TitleDiv>
 
-      <EditorWrapper>
-        <Editor setTitle={setTitle} setContent={setContent}></Editor>
-      </EditorWrapper>
-      <ButtonWrapper>
-        <ButtonDiv>
-          <Button onClick={savePost}>Save Post</Button>
-        </ButtonDiv>
-      </ButtonWrapper>
+          <EditorWrapper>
+            <Editor setTitle={setTitle} setContent={setContent}></Editor>
+          </EditorWrapper>
+          <ButtonWrapper>
+            <ButtonDiv>
+              <Button onClick={savePost}>Save Post</Button>
+            </ButtonDiv>
+          </ButtonWrapper>
+        </>
+      ) : (
+        <>
+          <Redirect to="/login" />
+        </>
+      )}
     </>
   );
 };

@@ -13,18 +13,12 @@ import {
   PublishBtn,
   MoveToDraftsBtn,
 } from "../styles/BlogPost.styled";
-import useFetchHook from "../utils/useFetchHook";
 
 function BlogPost(props) {
   const [postsObject, setPostsObject] = useState(undefined);
-  // let posts = [];
-  // async function FetchAPIDataAndStoreInState() {
-  //   setPostsObject(await useFetchHook("http://www.localhost:5000/api/posts/"));
-  // }
+  let dzuda = [];
+
   useEffect(() => {
-    // if (postsObject === undefined) {
-    //   FetchAPIDataAndStoreInState();
-    // }
     fetch("http://www.localhost:5000/api/posts/authAllPosts", {
       headers: {
         "auth-token": localStorage.getItem("token"),
@@ -33,7 +27,7 @@ function BlogPost(props) {
       .then((res) => res.json())
       .then((data) => {
         setPostsObject(data);
-        console.log("post object " + postsObject);
+        console.log(postsObject);
       });
   }, []);
 
@@ -45,6 +39,13 @@ function BlogPost(props) {
   };
   return (
     <>
+      {/* {postsObject === undefined ? (
+        <>
+          <p>Loading</p>
+        </>
+      ) : (
+        ""
+      )} */}
       {postsObject === undefined ? (
         <p>Loading</p>
       ) : (

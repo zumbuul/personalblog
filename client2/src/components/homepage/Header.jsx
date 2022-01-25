@@ -7,6 +7,13 @@ function Header() {
   const hoverEffect = () => {
     setBackColor(!backColor);
   };
+
+  const logout = async () => {
+    const res = await fetch("http://www.localhost:5000/api/login/logout");
+    const data = await res.json();
+
+    window.location.replace("http://localhost:3000/login");
+  };
   // useEffect(() => {
   // }, [backColor])
   return (
@@ -17,6 +24,7 @@ function Header() {
           backColor={backColor ? "#c7b198" : "#dfd3c3"}
           onMouseLeave={hoverEffect}
           onMouseOver={hoverEffect}
+          onClick={logout}
         >
           Log out
         </LogOut>
