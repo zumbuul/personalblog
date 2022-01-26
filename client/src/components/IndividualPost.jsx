@@ -1,9 +1,10 @@
 import React from "react";
 import { DateTime } from "luxon";
 import "./css/post.css";
-
+import ReactHtmlParser from "react-html-parser";
 const IndividualPost = ({ posts }) => {
   console.log(DateTime.fromISO(posts.posts[0].createdAt));
+
   return (
     <div className="outerPostWrapper">
       {posts.posts.map((post, id) => (
@@ -11,10 +12,10 @@ const IndividualPost = ({ posts }) => {
           <div className="innerPostWrapper">
             <h2 className="post-title">{post.title}</h2>
             <span></span>
-            <p className="post-text">{`${post.text.substring(
-              0,
-              500
-            )} [...]`}</p>
+            <p className="post-text">
+              {ReactHtmlParser(post.text)}
+              {`[...]`}
+            </p>
             {post.tags.length === 0 ? (
               <p className="no-tags">No Adequate Tags Found For This Post :(</p>
             ) : (

@@ -22,6 +22,7 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({ credential: true, origin: "http://localhost:3000" }));
+app.use(cors({ credential: true, origin: "http://localhost:3001" }));
 
 app.use("/api/posts", postsRouter);
 app.use("/api/comments", commentsRouter);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   LoginPicture,
@@ -15,6 +15,7 @@ import { GlobalBody } from "../styles/Generic.styled";
 import logo from "./logo.png";
 
 const Login = () => {
+  localStorage.setItem("token", null);
   const [pass, setPass] = useState();
 
   const logIn = async (e) => {
@@ -38,14 +39,14 @@ const Login = () => {
     if ((data.auth = true)) {
       localStorage.setItem("token", data.token);
       console.log(data.auth);
-      window.location.replace("http://localhost:3000/homepage");
+      // window.location.replace("http://localhost:3000/homepage");
     } else {
-      if (localStorage.getItem("token")) {
-        localStorage.removeItem("token");
-      }
+      localStorage.removeItem("token");
     }
-    // window.location.replace("http://localhost:3000/homepage");
   };
+  useEffect(() => {
+    localStorage.setItem("token", null);
+  }, []);
   return (
     <>
       <GlobalBody />

@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import IndividualPost from "./IndividualPost.jsx";
 import fetchDataFromURL from "./utils/fetchAPI";
+import ReactHtmlParser from "react-html-parser";
 import "./css/post.css";
 
 export const Home = () => {

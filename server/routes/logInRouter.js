@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const verify = require("../verifyToken");
 
-let token;
+let token = null;
 
 router.post("/", async (req, res) => {
   if (req.body.pass == process.env.PASSCODE) {
@@ -31,6 +31,10 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
   res.send({ token: token });
+});
+
+router.get("/logout", (req, res) => {
+  token = null;
 });
 
 module.exports = router;
