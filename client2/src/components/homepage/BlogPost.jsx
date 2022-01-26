@@ -22,9 +22,6 @@ function BlogPost(props) {
   //   setPostsObject(await useFetchHook("http://www.localhost:5000/api/posts/"));
   // }
   useEffect(() => {
-    // if (postsObject === undefined) {
-    //   FetchAPIDataAndStoreInState();
-    // }
     fetch("http://www.localhost:5000/api/posts/authAllPosts", {
       headers: {
         "auth-token": localStorage.getItem("token"),
@@ -43,42 +40,11 @@ function BlogPost(props) {
     });
     window.location.reload();
   };
+
   return (
     <>
-      {postsObject === undefined ? (
-        <p>Loading</p>
-      ) : (
-        postsObject.posts.map((post) =>
-          props.type == post.isPost ? (
-            <Container post={props.type}>
-              <SectionOne>
-                <a
-                  style={{ textDecoration: "none" }}
-                  href={`/edit/${post._id}`}
-                >
-                  <PostName post={props.type}>{post.title}</PostName>
-                  <PostDesc post={props.type}>
-                    {ReactHtmlParser(post.text.substring(0, 150))}
-                  </PostDesc>
-                </a>
-              </SectionOne>
-              <SectionTwo>
-                <PublishBtn post={props.type}>
-                  <img src={publish} />
-                </PublishBtn>
-                <MoveToDraftsBtn post={props.type}>
-                  <img src={toDrafts} alt="" />
-                </MoveToDraftsBtn>
-                <TrashBtn onClick={() => deletePost(post._id)}>
-                  <img src={trash} />
-                </TrashBtn>
-              </SectionTwo>
-            </Container>
-          ) : (
-            ""
-          )
-        )
-      )}
+      {console.log(postsObject)}
+      {postsObject == undefined ? <p>mrzim</p> : <p>ne mrzim</p>}
     </>
   );
 }
