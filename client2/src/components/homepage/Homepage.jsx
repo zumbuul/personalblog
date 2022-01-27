@@ -8,13 +8,14 @@ import AddPostButton from "./AddPostButton";
 
 function Homepage() {
   const [token, setToken] = useState("");
+  let verifyToken = "";
 
-  useEffect(async () => {
+  useEffect(() => {
     fetch("http://www.localhost:5000/api/login/")
       .then((res) => res.json())
       .then((data) => {
         setToken(data.token);
-        console.log("token " + token);
+        verifyToken = token;
       });
   }, []);
   // console.log("token " + token);
@@ -24,8 +25,8 @@ function Homepage() {
         <>
           <GlobalBody />
           <Header />
-          <BlogSection text="Posts" />
-          <BlogSection text="Drafts" />
+          <BlogSection token={token} text="Posts" />
+          <BlogSection token={token} text="Drafts" />
           <AddPostButton />
         </>
       ) : (
