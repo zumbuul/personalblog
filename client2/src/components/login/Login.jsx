@@ -36,12 +36,10 @@ const Login = () => {
     );
     const data = await res.json();
     console.log(data.token);
-    if ((data.auth = true)) {
+    if (data.auth == true) {
       localStorage.setItem("token", data.token);
       console.log(data.auth);
-      // window.location.replace("http://localhost:3000/homepage");
-    } else {
-      localStorage.removeItem("token");
+      window.location.replace("http://localhost:3000/homepage");
     }
   };
   useEffect(() => {

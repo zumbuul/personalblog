@@ -8,6 +8,7 @@ import AddPostButton from "./AddPostButton";
 
 function Homepage() {
   const [token, setToken] = useState("");
+  const [postsObject, setPostsObject] = useState(undefined);
   let verifyToken = "";
 
   useEffect(() => {
@@ -17,6 +18,16 @@ function Homepage() {
         setToken(data.token);
         verifyToken = token;
       });
+    fetch("http://www.localhost:5000/api/posts/authAllPosts", {
+      headers: {
+        "auth-token": localStorage.getItem("token"),
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setPostsObject(data);
+        console.log(postsObject);
+      });
   }, []);
   // console.log("token " + token);
   return (
@@ -25,8 +36,7 @@ function Homepage() {
         <>
           <GlobalBody />
           <Header />
-          <BlogSection token={token} text="Posts" />
-          <BlogSection token={token} text="Drafts" />
+          <BlogSection text="Posts" />
           <AddPostButton />
         </>
       ) : (

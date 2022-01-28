@@ -14,5 +14,9 @@ router.get("/:id", postController.getPostWithID);
 router.get("/tags/:tag", postController.countTagsOnPost);
 //DELETE - DELETE POST WITH ID :ID
 router.delete("/:id", postController.deletePost);
+//PUT - UPDATE POST WITH ID :ID
+router.put("/switch/:id", postController.switchPostType);
+//PUT - UPDATE POST WITH ID
+router.put("/:id", postController.updatePost);
 
 module.exports = router;

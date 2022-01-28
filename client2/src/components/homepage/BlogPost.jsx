@@ -16,7 +16,6 @@ import {
 
 function BlogPost(props) {
   const [postsObject, setPostsObject] = useState(undefined);
-  let dzuda = [];
 
   useEffect(() => {
     fetch("http://www.localhost:5000/api/posts/authAllPosts", {
@@ -37,15 +36,17 @@ function BlogPost(props) {
     });
     window.location.reload();
   };
+
+  async function switchPostType(id, type) {
+    const data = await fetch("http://www.localhost:5000/api/posts/" + id, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type, id }),
+    });
+    setPostsObject(await data.json());
+  }
   return (
     <>
-      {/* {postsObject === undefined ? (
-        <>
-          <p>Loading</p>
-        </>
-      ) : (
-        ""
-      )} */}
       {postsObject === undefined ? (
         <p>Loading</p>
       ) : (
@@ -64,10 +65,19 @@ function BlogPost(props) {
                 </a>
               </SectionOne>
               <SectionTwo>
-                <PublishBtn post={props.type}>
+                <PublishBtn
+                  post={props.type}
+                  onClick={() => {
+                    switchPostType(post._id, "Posts");
+                    console.log("published");
+                  }}
+                >
                   <img src={publish} />
                 </PublishBtn>
-                <MoveToDraftsBtn post={props.type}>
+                <MoveToDraftsBtn
+                  post={props.type}
+                  onClick={() => switchPostType(post._id, "Drafts")}
+                >
                   <img src={toDrafts} alt="" />
                 </MoveToDraftsBtn>
                 <TrashBtn onClick={() => deletePost(post._id)}>
